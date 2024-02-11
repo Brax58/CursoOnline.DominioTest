@@ -1,5 +1,5 @@
-﻿using CursoOnline.DominioTest.Cursos;
-
+﻿using CursoOnline.Dominio.Entitys;
+using CursoOnline.Dominio.Enums;
 namespace CursoOnline.DominioTest.Builders
 {
     internal class CursoBuilder
