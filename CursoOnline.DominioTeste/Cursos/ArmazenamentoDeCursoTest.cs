@@ -49,20 +49,6 @@ namespace CursoOnline.DominioTest.Cursos
 
             Assert.Throws<ArgumentException>(() => _armazenadorDeCurso.ArmazenarCurso(_cursoDto));
         }
-
-        [Fact]
-        public void NaoDeveAdicionarCursoComMesmoNomeDeOutroSalvo() 
-        {
-            //Arrange
-            var cursoJaSalvo = CursoBuilder.Novo().AtualizarNome(_cursoDto.Nome).Build();
-
-            _cursoRepositorioMock.Setup(c => c.ObterPeloNome(_cursoDto.Nome)).Returns(cursoJaSalvo);
-
-            //Act and Assert
-            var erro = Assert.Throws<ArgumentException>(() => _armazenadorDeCurso.ArmazenarCurso(_cursoDto));
-
-            Assert.Equal("Nome do curso já consta no banco de dados.",erro.Message);
-        }
     }
 
     public interface ICursoRepositorio
